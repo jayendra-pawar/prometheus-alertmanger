@@ -1,0 +1,17 @@
+{
+	"ulid": "01HMG2P5H1CDJ9393BXS5Q75DV",
+	"minTime": 1705630906096,
+	"maxTime": 1705636800000,
+	"stats": {
+		"numSamples": 784,
+		"numSeries": 392,
+		"numChunks": 392
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01HMG2P5H1CDJ9393BXS5Q75DV"
+		]
+	},
+	"version": 1
+}

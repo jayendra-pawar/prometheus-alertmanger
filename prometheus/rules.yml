@@ -1,0 +1,35 @@
+groups:
+  - name: Globeye Alerts
+    rules:
+      - alert: Sortedset-With-Total-Jobs-Critical
+        expr: sum by(sorted_set) (abs(delta(sorted_set_total_jobs[10m]))) > 200000
+        for: 10m
+        labels:
+          severity: critical
+          alert_type: App
+          priority: p0
+          product: Platform
+          job: taskq_us
+          noc_monitoring: enabled
+          service: EKS
+          aws_accid: 
+          oncall: No
+          source: Trigmetry
+          alert_owner: Kairos
+          aws_acc_name: platforms-kairos-staging
+          region: "{{ $labels.region }}"
+          hostname: "{{ $labels.instance }}"
+          ipaddr: "{{ $labels.instance }}"
+          namespace: "{{ $labels.namespace}}"
+          cluster: "{{ $labels.k8s_cluster_name}}"
+          sortedset: "{{ $labels.sorted_set}}"
+          platform: Kairos
+          component: Executer
+          downstream: not-allocated
+          upstream: not-allocated
+          notification_channel: 
+          threshold: 200000
+          dashboard:
+        annotations:
+          description: 'Sorted Set with Total Jobs `{{ printf "%.1f" $value }}`% crossed threshold 200000 in Namespace:`{{ $labels.namespace }}` & SortedSet: `{{ $labels.sorted_set}}`'
+          summary: "sorted_set_total_jobs Crossed Threshold"
