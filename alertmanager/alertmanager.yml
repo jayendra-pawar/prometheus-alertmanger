@@ -1,11 +1,11 @@
 global:
   resolve_timeout: 3m
-  slack_api_url: https://hooks.slack.com/services/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
+  slack_api_url: 
 
 receivers:
 - name: default-receiver
   slack_configs:
-  - channel: '#fp-kairos-haystacks-alerts'
+  - channel: '#channels'
     send_resolved: true
     username: '{{ template "slack.default.username" . }}'
     color: '{{ if eq .Status "firing" }}danger{{ else }}good{{ end }}'
