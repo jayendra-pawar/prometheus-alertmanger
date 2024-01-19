@@ -20,9 +20,11 @@ Installation
            3. tar -xvzf alertmanager-0.23.0.darwin-amd64.tar.gz
 
 Check AlertManager File Validation
+
         1 ./amtool check-config /path_to/alertmanager.yml
 
 Check Prometheus File Validations
+
         1 ./promtool check rules /path_to/xyz_rules.yml
 
         2 ./promtool check config /path_to/prometheus.yml
